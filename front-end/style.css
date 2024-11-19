@@ -1,4 +1,21 @@
 body {
+    background-image: url("../data/images/background.jpg");
+    background-position: center;
+    background-size: auto 100%;
+    background-repeat: revert;
     font-family: "Comic Sans MS";
+}
 
+#logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+
+}
+
+.mainMenuButtons{
+    display: block;
+    margin-top: 5%;
+    text-align: center;
 }
