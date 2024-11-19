@@ -7,9 +7,20 @@
 <body>
 <img id="logo" src="/data/images/HanGOmanWeb.png" alt="HanGOmanWeb logo"/>
 <div class="mainMenuButtons">
-    <a  href="https://google.com">Jouer</a>
+    <a  href="#demo">Jouer</a>
     <br><br>
     <a  href="https://raw.githubusercontent.com/De3stro/galerie-myst-re/refs/heads/main/%C3%A7a%20arrive%20fort.png">Comment jouer</a>
+</div>
+<div id="demo" class="modal">
+    <div class="modal_content">
+        <label for="pseudo">Votre pseudo :</label><br>
+        <input type="text" id="pseudo" name="pseudo" placeholder="Ex: Robert">
+        <p>Choisissez la difficulté : </p>
+            <a class="popupMainMenuButtons" href="index.html">Facile</a><br><br>
+            <a class="popupMainMenuButtons" href="index.html">Moyen</a><br><br>
+            <a class="popupMainMenuButtons" href="index.html">Force à toi</a><br><br>
+        <a href="#" class="modal_close">&times;</a>
+    </div>
 </div>
 </body>
 </html>
