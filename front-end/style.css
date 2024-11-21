@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "River Adventurer";
+    src: url("../data/fonts/river_adventurer.ttf");
+}
+
 body {
     background-image: url("../data/images/background.jpg");
     background-position: center;
@@ -36,7 +41,8 @@ a.mainMenuButtons{
     display: block;
     margin: 5% auto 0;
     padding: 20px 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+    filter: drop-shadow(5px 10px 3px #000000);
 }
 
 a.mainMenuButtons:hover {
@@ -67,6 +73,7 @@ a.popupMainMenuButtons {
     background-position: center;
     background-size: auto;
     width: auto;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
 
 }
 
