@@ -3,7 +3,7 @@ body {
     background-position: center;
     background-size: auto 100%;
     background-repeat: revert;
-    font-family: "River Adventurer";
+    font-family: "River Adventurer", serif;
 }
 
 #logo {
@@ -17,27 +17,35 @@ body {
 
 .mainMenuButtons{
     display: block;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 5%;
-    width: auto;
-    text-align: center;
-
+    width: 10%;
 }
 
-a {
-    border: white 10px solid;
+.mainMenuButtons{
+    width: 50%;
+    align-content: center;
     border-radius: 30px;
-    background: white;
     color: black;
+    margin-bottom: 10%;
 }
 
-
-.popupMainMenuButtons {
-    margin-top: 7%;
-    border: black 10px solid;
+a.mainMenuButtons{
+    text-align: center;
+    border: black 20px solid;
     color: white;
     background: black;
     border-radius: 40px;
 }
+
+.popupMainMenuButtons {
+    border: black 20px solid;
+    color: white;
+    background: black;
+    border-radius: 40px;
+}
+
 .modal {
     visibility: hidden;
     opacity: 0;
@@ -48,26 +56,52 @@ a {
     align-items: center;
     justify-content: center;
     transition: all .4s;
+    backface-visibility: hidden;
 }
 
 .modal:target {
     visibility: visible;
     opacity: 1;
 }
-
 .modal_content {
-    border-radius: 4px;
+    text-align: center;
     position: relative;
-    width: 500px;
-    max-width: 90%;
-    background: rgba(255,255,255);
-    padding: 1.5em 2em;
+    background-size: 500px;
+    width: 300px;
+    border-radius: 30px;
+    padding: 1em 0.5em;
 }
 
+
 .modal_close {
+    filter: drop-shadow(5px 15px 3px #000000);
     position: absolute;
     top: 10px;
     right: 10px;
-    color: grey;
     text-decoration: none;
+}
+
+*.pseudoInput{
+    box-sizing: border-box;
+}
+
+label.pseudoInput{
+    width: 100%;
+    max-width: 300px;
+    position: relative;
+}
+input.pseudoInput{
+    width: 100%;
+    display: flex;
+    padding: 15px;
+    background-color: white;
+    border: 2px solid black;
+    color: #111;
+    font-size: 15px;
+    box-shadow: 3px 1px 0px 2px, 0px -1px 0px 2px rgba(0, 0, 0, 0.62);
+    height: 58px;
+    transform: skew(-3deg, 1deg);
+    font-family: 'Knewave', cursive;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
