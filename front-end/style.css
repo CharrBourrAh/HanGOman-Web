@@ -23,6 +23,7 @@ body {
     border-radius: 30px;
     color: white;
     margin: 5% auto 0;
+    transition: all .3s ease;
 }
 
 a.mainMenuButtons{
@@ -33,24 +34,16 @@ a.mainMenuButtons{
     border-radius: 40px;
 }
 
+a.mainMenuButtons:hover {
+    transform: skew(-3deg, 1deg) scale(1.2);
+}
+
 a.popupMainMenuButtons {
     position: relative;
     margin-left: auto;
     border: black 20px solid;
     border-radius: 30px ;
     color: white;
-}
-
-#easy {
-    color: greenyellow;
-}
-
-#medium {
-    color: yellow;
-}
-
-#hard {
-    color: red;
 }
 
 .modal {
@@ -85,11 +78,13 @@ a.popupMainMenuButtons {
     padding: 1em 0.5em;
     margin-top: 50px;
     justify-content: center;
+transition: all .3s ease;
 }
 
 input:placeholder-shown + .difficulty {
     display: none;
 }
+
 .modal_close {
     bottom: 35px;
     position: relative;
@@ -109,6 +104,7 @@ label.pseudoInput{
     max-width: 300px;
     position: relative;
 }
+
 input.pseudoInput{
     width: 100%;
     display: flex;
@@ -124,4 +120,45 @@ input.pseudoInput{
     text-transform: uppercase;
     font-family: "River Adventurer", serif;
     margin-top: 20px;
+    transition: all 0.3s ease;
+}
+input.pseudoInput:focus {
+    outline: none;
+    border-color: #ebb26f;
+    box-shadow: 3px 1px 0px 2px, 0px -1px 0px 2px rgba(0, 0, 0, 0.9);
+    transform: scale(1.05);
+}
+
+#easy {
+    color: greenyellow;
+}
+
+#medium {
+    color: yellow;
+}
+
+#hard {
+    color: red;
+}
+
+.difficulty {
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+a.difficulty:hover {
+    animation: button-pulse 0.6s ease-in-out;
+    transform: scale(1.05);
+}
+
+#easy:hover {
+    text-shadow: 0 0 10px greenyellow;
+}
+
+#medium:hover {
+    text-shadow: 0 0 10px yellow;
+}
+
+#hard:hover {
+    text-shadow: 0 0 10px red;
 }
