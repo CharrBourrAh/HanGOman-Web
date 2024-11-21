@@ -27,11 +27,16 @@ body {
 }
 
 a.mainMenuButtons{
+    background-image: url("../data/images/wooden_sign.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
     text-align: center;
-    border: black 20px solid;
-    color: white;
-    background-color: black;
-    border-radius: 40px;
+    display: block;
+    margin: 5% auto 0;
+    padding: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 a.mainMenuButtons:hover {
