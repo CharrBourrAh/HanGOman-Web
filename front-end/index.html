@@ -8,22 +8,28 @@
 <body>
 <img id="logo" src="/data/images/HanGOmanWeb.png" alt="HanGOmanWeb logo"/>
 <div class="mainMenuButtons">
-    <a class="mainMenuButtons" href="#demo">Jouer</a>
+    <a class="mainMenuButtons" href="#demo">
+        Jouer
+    </a>
     <br><br>
-    <a class="mainMenuButtons" href="https://raw.githubusercontent.com/De3stro/galerie-myst-re/refs/heads/main/%C3%A7a%20arrive%20fort.png">Comment jouer</a>
+    <a class="mainMenuButtons" href="https://raw.githubusercontent.com/De3stro/galerie-myst-re/refs/heads/main/%C3%A7a%20arrive%20fort.png">
+        Comment jouer
+    </a>
 </div>
 <div id="demo" class="modal">
     <div class="modal_content">
         <label class="pseudoInput" for="pseudo">Votre pseudo :</label><br>
         <input class="pseudoInput" type="text" id="pseudo" name="pseudo" placeholder="Ex: Robert">
+        <div class="difficulty">
         <p>Choisissez la difficulté : </p>
         <div class="popupMainMenuButtons">
-            <a  href="index.html">Facile</a>
-            <a  href="index.html">Moyen</a>
-            <a  href="index.html">Force à toi</a>
+            <a id="easy" href="index.html">Facile</a>
+            <a id="medium" href="index.html">Moyen</a>
+            <a id="hard" href="index.html">Force à toi</a>
         </div>
-        <a href="#" class="modal_close">❌</a>
+        </div>
     </div>
+    <a href="#" class="modal_close">❌</a>
 </div>
 </body>
 </html>
