@@ -69,12 +69,13 @@ a.popupMainMenuButtons {
     background-position: center;
     background-size: auto;
     width: auto;
-    filter: drop-shadow(5px 10px 300px #000000);
+
 }
 
 .modal:target {
     visibility: visible;
     opacity: 1;
+    filter: drop-shadow(5px 10px 3000px #000000);
 }
 
 .modal_content {
