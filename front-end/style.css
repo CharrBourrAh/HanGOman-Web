@@ -1,10 +1,10 @@
 @font-face {
     font-family: "River Adventurer";
-    src: url("/assets/fonts/river_adventurer.ttf");
+    src: url("assets/fonts/river_adventurer.ttf");
 }
 
 body {
-    background-image: url("/assets/images/background.jpg");
+    background-image: url("assets/images/background.jpg");
     background-position: center;
     background-size: cover ;
     background-repeat: no-repeat;
@@ -32,7 +32,7 @@ body {
 }
 
 a.mainMenuButtons{
-    background-image: url("/assets/images/wooden_sign.png");
+    background-image: url("assets/images/wooden_sign.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -68,7 +68,7 @@ a.popupMainMenuButtons {
     justify-content: center;
     transition: all .4s;
     backface-visibility: hidden;
-    background-image: url("/assets/images/wooden_sign.png");
+    background-image: url("assets/images/wooden_sign.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: auto;
