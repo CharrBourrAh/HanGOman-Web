@@ -8,45 +8,47 @@
 <body>
 <a class="pauseButton" href="#pause" >⏸</a>
 <div class="hangman">
-    <h1>H_ll_</h1>
-    <p id="attempts">6 essais restants</p>
-    <p id="alreadyUsed">Déja utilisé : []</p>
-    <img src="/front-end/assets/images/hangmanPos/hangman10.png" alt="Hangman Position">
+    <h1>{{.word}}</h1>
+    <p id="attempts">{{.attempts}} essais restants</p>
+    <p id="alreadyUsed">Déja utilisé : [{{.alreadyUsedLetters}}]</p>
+    <img src="/front-end/assets/images/hangmanPos/hangman{{.attemptsInversed}}.png" alt="Hangman Position">
 </div>
+<br>
 <div class="alphabet-table">
-    <a href="index.gohtml" class="alphabet-button">A</a>
-    <a href="index.gohtml" class="alphabet-button">B</a>
-    <a href="index.gohtml" class="alphabet-button">C</a>
-    <a href="index.gohtml" class="alphabet-button">D</a>
-    <a href="index.gohtml" class="alphabet-button">E</a>
-    <a href="index.gohtml" class="alphabet-button">F</a>
-    <a href="index.gohtml" class="alphabet-button">G</a>
-    <a href="index.gohtml" class="alphabet-button">H</a>
-    <a href="index.gohtml" class="alphabet-button">I</a>
-    <a href="index.gohtml" class="alphabet-button">J</a>
-    <a href="index.gohtml" class="alphabet-button">K</a>
-    <a href="index.gohtml" class="alphabet-button">L</a>
-    <a href="index.gohtml" class="alphabet-button">M</a>
-    <a href="index.gohtml" class="alphabet-button">N</a>
-    <a href="index.gohtml" class="alphabet-button">O</a>
-    <a href="index.gohtml" class="alphabet-button">P</a>
-    <a href="index.gohtml" class="alphabet-button">Q</a>
-    <a href="index.gohtml" class="alphabet-button">R</a>
-    <a href="index.gohtml" class="alphabet-button">S</a>
-    <a href="index.gohtml" class="alphabet-button">T</a>
-    <a href="index.gohtml" class="alphabet-button">U</a>
-    <a href="index.gohtml" class="alphabet-button">V</a>
-    <a href="index.gohtml" class="alphabet-button">W</a>
-    <a href="index.gohtml" class="alphabet-button">X</a>
-    <a href="index.gohtml" class="alphabet-button">Y</a>
-    <a href="index.gohtml" class="alphabet-button">Z</a>
+    <a href="/" class="alphabet-button">A</a>
+    <a href="/" class="alphabet-button">B</a>
+    <a href="/" class="alphabet-button">C</a>
+    <a href="/" class="alphabet-button">D</a>
+    <a href="/" class="alphabet-button">E</a>
+    <a href="/" class="alphabet-button">F</a>
+    <a href="/" class="alphabet-button">G</a>
+    <a href="/" class="alphabet-button">H</a>
+    <a href="/" class="alphabet-button">I</a>
+    <a href="/" class="alphabet-button">J</a>
+    <a href="/" class="alphabet-button">K</a>
+    <a href="/" class="alphabet-button">L</a>
+    <a href="/" class="alphabet-button">M</a>
+    <a href="/" class="alphabet-button">N</a>
+    <a href="/" class="alphabet-button">O</a>
+    <a href="/" class="alphabet-button">P</a>
+    <a href="/" class="alphabet-button">Q</a>
+    <a href="/" class="alphabet-button">R</a>
+    <a href="/" class="alphabet-button">S</a>
+    <a href="/" class="alphabet-button">T</a>
+    <a href="/" class="alphabet-button">U</a>
+    <a href="/" class="alphabet-button">V</a>
+    <a href="/" class="alphabet-button">W</a>
+    <a href="/" class="alphabet-button">X</a>
+    <a href="/" class="alphabet-button">Y</a>
+    <a href="/" class="alphabet-button">Z</a>
 </div>
+
 <label class="wordInput" for="word"></label><br>
 <input class="wordInput" type="text" id="word" name="word" placeholder="Entrez votre choix ci-dessous">
 <div id="pause" class="popupGamePage">
     <div class="popupGamePageContent">
-        <a href="/game">Rejouer</a>
-        <a href="/">Menu Principal</a>
+        <a id="replay" class="alphabet-button" href="/game">Rejouer</a>
+        <a id="replay" class="alphabet-button" href="/">Menu Principal</a>
     </div>
     <a href="/game" class="popupGamePageClose">❌</a>
 </div>
