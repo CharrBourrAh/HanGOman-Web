@@ -11,6 +11,71 @@ body {
     font-family: "River Adventurer", serif;
 }
 
+.pauseButton {
+    position: relative;
+}
+
+.pauseButton a {
+    right: 100px;
+}
+
+.popupGamePage {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 0; right: 0;
+    bottom: 0; left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .4s;
+    backface-visibility: hidden;
+    background-image: url("/front-end/assets/images/wooden_sign.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    width: auto;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+}
+
+.popupGamePage:target {
+    visibility: visible;
+    opacity: 1;
+    filter: drop-shadow(5px 10px 3000px #000000);
+}
+
+.popupGamePageContent {
+    align-content: center;
+    text-align: center;
+    position: relative;
+    border-radius: 30px;
+    justify-content: center;
+    transition: all .3s ease;
+}
+
+a.mainMenuButtons{
+    background-image: url("/front-end/assets/images/wooden_sign.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin: 5% auto 0;
+    padding: 20px 0;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+    filter: drop-shadow(5px 10px 3px #000000);
+}
+
+.popupGamePageClose {
+    bottom: 35px;
+    position: relative;
+    text-decoration: none;
+    border: 3px solid #ebb26f;
+    border-radius: 30px;
+    background: #ebb26f;
+}
+
 .hangman h1 , .hangman p{
     color: white;
     text-align: center;
@@ -18,26 +83,11 @@ body {
 }
 
 .hangman img {
-    height: 0;
-    width: 50%;
-    left: 50%;
-    transform: translateX(50%);
+    align-content: center;
+    height: auto;
+    width: 45%;
+    transform: translateX(57.5%);
     filter: drop-shadow(5px 10px 3px #000000);
-}
-
-.split {
-    height: 50%;
-    width: 100%;
-    position: fixed;
-    z-index: 1;
-    bottom: 0;
-    right: 0;
-    overflow-x: hidden;
-    padding: 20px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
 }
 
 .alphabet-table {
@@ -68,13 +118,13 @@ body {
     transform: scale(1.1);
 }
 
+
 input.wordInput:focus {
     outline: none;
     border-color: #ebb26f;
     box-shadow: 3px 1px 0 2px, 0 -1px 0 2px rgba(0, 0, 0, 0.9);
     transform: scale(1.025) translateX(1%);
 }
-
 
 input.wordInput{
     align-content: center;
@@ -99,11 +149,5 @@ input.wordInput{
 @media (max-width: 768px) {
     .alphabet-table {
         grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-    .alphabet-table {
-        grid-template-columns: 1fr;
     }
 }

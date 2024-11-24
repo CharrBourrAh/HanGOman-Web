@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/front-end/gameStyle.css">
 </head>
 <body>
+<a class="pauseButton" href="#pause" >⏸</a>
 <div class="hangman">
     <h1>H_ll_</h1>
     <p id="attempts">6 essais restants</p>
@@ -42,5 +43,12 @@
 </div>
 <label class="wordInput" for="word"></label><br>
 <input class="wordInput" type="text" id="word" name="word" placeholder="Entrez votre choix ci-dessous">
+<div id="pause" class="popupGamePage">
+    <div class="popupGamePageContent">
+        <a href="/game">Rejouer</a>
+        <a href="/">Menu Principal</a>
+    </div>
+    <a href="/game" class="popupGamePageClose">❌</a>
+</div>
 </body>
 </html>
