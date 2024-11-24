@@ -12,11 +12,16 @@ body {
 }
 
 .pauseButton {
-    position: relative;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    padding: 10px;
 }
 
 .pauseButton a {
-    right: 100px;
+    text-decoration: none;
+    font-size: 40px;
 }
 
 .popupGamePage {
@@ -89,7 +94,6 @@ a.mainMenuButtons{
     transform: translateX(57.5%);
     filter: drop-shadow(5px 10px 3px #000000);
 }
-
 .alphabet-table {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
@@ -98,6 +102,7 @@ a.mainMenuButtons{
     max-width: 100%;
     margin-bottom: 5px;
 }
+
 
 .alphabet-button {
     display: block;
