@@ -2,6 +2,7 @@
     font-family: "River Adventurer";
     src: url("/front-end/assets/fonts/river_adventurer.ttf");
 }
+
 body {
     background-image: url("/front-end/assets/images/background.jpg");
     background-position: center;
@@ -9,6 +10,58 @@ body {
     background-repeat: no-repeat;
     background-attachment: scroll;
     font-family: "River Adventurer", serif;
+}
+
+.pauseButton {
+    position: static;
+    align-content: normal;
+    top: 0;
+    right: 0;
+}
+
+.modal {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 0; right: 0;
+    bottom: 0; left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .4s;
+    backface-visibility: hidden;
+    background-image: url("/front-end/assets/images/wooden_sign.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    width: auto;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+
+}
+
+.modal:target {
+    visibility: visible;
+    opacity: 1;
+    filter: drop-shadow(5px 10px 3000px #000000);
+}
+
+.modal_content {
+    text-align: center;
+    position: relative;
+    border-radius: 30px;
+    padding: 1em 0.5em;
+    margin-top: 50px;
+    justify-content: center;
+    transition: all .3s ease;
+}
+
+.modal_close {
+    bottom: 35px;
+    position: relative;
+    text-decoration: none;
+    border: 3px solid #ebb26f;
+    border-radius: 30px;
+    background: #ebb26f;
 }
 
 .hangman h1 , .hangman p{
@@ -57,8 +110,8 @@ body {
     background-repeat: no-repeat;
     text-align: center;
     padding: 30px;
-    text-shadow: 5px 5px 10px rgba(255, 255, 255, 0.7);
-    filter: drop-shadow(5px 10px 3px #ffffff);
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+    filter: drop-shadow(5px 10px 3px #000000);
     text-decoration: none;
     color: white;
     transition: all .5s ease;
@@ -68,13 +121,13 @@ body {
     transform: scale(1.1);
 }
 
+
 input.wordInput:focus {
     outline: none;
     border-color: #ebb26f;
     box-shadow: 3px 1px 0 2px, 0 -1px 0 2px rgba(0, 0, 0, 0.9);
     transform: scale(1.025) translateX(1%);
 }
-
 
 input.wordInput{
     align-content: center;
