@@ -43,3 +43,11 @@ func HowToPlay(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 }
+
+func Game(w http.ResponseWriter, r *http.Request) {
+	t := template.Must(template.ParseGlob("./front-end/game.gohtml"))
+	err := t.Execute(w, nil)
+	if err != nil {
+		return
+	}
+}
