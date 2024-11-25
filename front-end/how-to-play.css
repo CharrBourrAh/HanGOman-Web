@@ -1,0 +1,51 @@
+@font-face {
+    font-family: "River Adventurer";
+    src: url("/front-end/assets/fonts/river_adventurer.ttf");
+}
+
+body {
+    background-image: url("assets/images/wooden_sign.webp");
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: 80% 90%;
+    background-position: center;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: "River Adventurer", sans-serif;
+}
+
+h1 {
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 0.5em;
+    text-shadow: -1px -1px #fff, 1px 1px #000, -3px 0 4px #fff;
+}
+
+p {
+    font-size: 2em;
+    text-align: center;
+    max-width: 80%;
+    text-shadow: -1px -1px #fff, 1px 1px #000, -3px 0 4px #fff;
+
+}
+
+.content {
+    padding: 15em;
+    border-radius: 50px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.button {
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1em;
+    width: 10em;
+    height: 4em;
+}
