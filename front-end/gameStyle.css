@@ -123,21 +123,36 @@ a.mainMenuButtons{
     transform: scale(1.1);
 }
 
+#send {
+    width: 97.25%;
+}
 
-input.wordInput:focus {
+#word {
+    width: 95%;
+}
+
+#send:hover {
+    background-color: green;
     outline: none;
     border-color: #ebb26f;
     box-shadow: 3px 1px 0 2px, 0 -1px 0 2px rgba(0, 0, 0, 0.9);
-    transform: scale(1.025) translateX(1%);
+    transform: scale(1.025) translateX(1.25%);
+}
+
+#word:focus {
+    background-color: white;
+    outline: none;
+    border-color: #ebb26f;
+    box-shadow: 3px 1px 0 2px, 0 -1px 0 2px rgba(0, 0, 0, 0.9);
+    transform: scale(1.025) translateX(1.25%);
 }
 
 input.wordInput{
     align-content: center;
     margin-left: auto;
     margin-right: auto;
-    width: 95%;
+
     padding: 1%;
-    background-color: white;
     border: 2px solid black;
     color: #111;
     font-size: 15px;

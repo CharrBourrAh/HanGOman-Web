@@ -42,9 +42,11 @@
     <a href="/" class="alphabet-button">Y</a>
     <a href="/" class="alphabet-button">Z</a>
 </div>
-
-<label class="wordInput" for="word"></label><br>
-<input class="wordInput" type="text" id="word" name="word" placeholder="Entrez votre choix ci-dessous">
+<form action="" method="get" class="wordInput">
+    <label class="wordInput" for="word"></label><br>
+    <input class="wordInput" type="text" id="word" name="word" placeholder="Entrez votre choix ci-dessous" required>
+    <input class="wordInput" type="submit" id="send" value="Envoyer">
+</form>
 <div id="pause" class="popupGamePage">
     <div class="popupGamePageContent">
         <a id="replay" class="alphabet-button" href="/game">Rejouer</a>
