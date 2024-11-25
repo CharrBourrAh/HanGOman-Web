@@ -1,0 +1,179 @@
+@font-face {
+    font-family: "River Adventurer";
+    src: url("/front-end/assets/fonts/river_adventurer.ttf");
+}
+body {
+    background-image: url("/front-end/assets/images/background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    font-family: "River Adventurer", serif;
+}
+
+.pauseButton {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    padding: 10px;
+}
+
+.pauseButton a {
+    text-decoration: none;
+    font-size: 40px;
+}
+
+.popupGamePage {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 0; right: 0;
+    bottom: 0; left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .4s;
+    backface-visibility: hidden;
+    background-image: url("/front-end/assets/images/wooden_sign.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    width: auto;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+}
+
+.popupGamePage:target {
+    visibility: visible;
+    opacity: 1;
+    filter: drop-shadow(5px 10px 3000px #000000);
+}
+
+.popupGamePageContent {
+    align-content: center;
+    text-align: center;
+    position: relative;
+    border-radius: 30px;
+    justify-content: center;
+    transition: all .3s ease;
+}
+
+a.mainMenuButtons{
+    background-image: url("/front-end/assets/images/wooden_sign.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin: 5% auto 0;
+    padding: 20px 0;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+    filter: drop-shadow(5px 10px 3px #000000);
+}
+
+.popupGamePageClose {
+    bottom: 35px;
+    position: relative;
+    text-decoration: none;
+    border: 3px solid #ebb26f;
+    border-radius: 30px;
+    background: #ebb26f;
+}
+
+.hangman h1 , .hangman p{
+    color: white;
+    text-align: center;
+    filter: drop-shadow(1px 1px 1px #000000);
+}
+
+.hangman img {
+    align-content: center;
+    height: auto;
+    width: 45%;
+    transform: translateX(57.5%);
+    filter: drop-shadow(5px 10px 3px #000000);
+}
+.alphabet-table {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 10px;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 5px;
+}
+
+
+.alphabet-button {
+    display: block;
+    background-image: url("/front-end/assets/images/wooden_sign.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding: 30px;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+    filter: drop-shadow(5px 10px 3px #000000);
+    text-decoration: none;
+    color: white;
+    transition: all .5s ease;
+}
+
+.alphabet-button:hover {
+    transform: scale(1.1);
+}
+
+#send {
+    width: 97.25%;
+}
+
+#word {
+    width: 95%;
+}
+
+#send:hover {
+    background-color: green;
+    outline: none;
+    border-color: #ebb26f;
+    box-shadow: 3px 1px 0 2px, 0 -1px 0 2px rgba(0, 0, 0, 0.9);
+    transform: scale(1.025) translateX(1.25%);
+}
+
+#word:focus {
+    background-color: white;
+    outline: none;
+    border-color: #ebb26f;
+    box-shadow: 3px 1px 0 2px, 0 -1px 0 2px rgba(0, 0, 0, 0.9);
+    transform: scale(1.025) translateX(1.25%);
+}
+
+input.wordInput{
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 1%;
+    border: 2px solid black;
+    color: #111;
+    font-size: 15px;
+    box-shadow: 3px 1px 0 2px, 0 -1px 0 2px rgba(0, 0, 0, 0.62);
+    height: auto;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: "River Adventurer", serif;
+    margin-top: 20px;
+    transform: translateX(1%);
+    transition: all 0.3s ease;
+}
+
+#replay {
+    width: 75%;
+    margin-top: 15%;
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .alphabet-table {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
