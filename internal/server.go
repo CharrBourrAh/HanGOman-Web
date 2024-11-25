@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"html/template"
 	"log"
+	"main/internal/hangman-classic/internal-hangman-classic/game"
+	"main/internal/hangman-classic/pkg/structs"
 	"net/http"
 )
 
@@ -29,11 +31,14 @@ func Init_Server() {
 
 func Home(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.ParseGlob("./front-end/index.gohtml"))
+	var data structs.HangManData
 	err := t.Execute(w, nil)
 	if err != nil {
 		return
 	}
-
+	data.Nickname, data.WordFile = r.URL.Query().Get("nickname"), r.URL.Query().Get("word")
+	game.Init(data.WordFile, &data, r)
+	Game(w, r)
 }
 
 func HowToPlay(w http.ResponseWriter, r *http.Request) {
@@ -42,6 +47,7 @@ func HowToPlay(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		return
 	}
+
 }
 
 func Game(w http.ResponseWriter, r *http.Request) {
