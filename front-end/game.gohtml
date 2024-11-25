@@ -8,10 +8,10 @@
 <body>
 <a class="pauseButton" href="#pause" >⏸</a>
 <div class="hangman">
-    <h1>{{.word}}</h1>
-    <p id="attempts">{{.attempts}} essais restants</p>
-    <p id="alreadyUsed">Déja utilisé : [{{.alreadyUsedLetters}}]</p>
-    <img src="/front-end/assets/images/hangmanPos/hangman{{.attemptsInversed}}.png" alt="Hangman Position">
+    <h1>{{.Word}}</h1>
+    <p id="attempts">{{.Attempts}} essais restants</p>
+    <p id="alreadyUsed">Déja utilisé : {{.AlreadyTried}}</p>
+    <img src="/front-end/assets/images/hangmanPos/hangman{{.StrAttempts}}.png" alt="Hangman Position">
 </div>
 <br>
 <div class="alphabet-table">
