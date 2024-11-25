@@ -4,10 +4,15 @@ import (
 	"fmt"
 	"html/template"
 	"log"
-	"main/internal/hangman-classic/internal-hangman-classic/game"
 	"main/internal/hangman-classic/pkg/structs"
 	"net/http"
 )
+
+type AppContext struct {
+	data *structs.HangManData
+}
+
+var context AppContext
 
 const PortNum string = ":3000"
 
@@ -30,15 +35,21 @@ func Init_Server() {
 }
 
 func Home(w http.ResponseWriter, r *http.Request) {
-	t := template.Must(template.ParseGlob("./front-end/index.gohtml"))
 	var data structs.HangManData
+	context.data = &data
+	//game.Init(&data, r)
+	if r.URL.Query().Get("pseudo") != "" && r.URL.Query().Get("difficulty") != "" {
+		data.Nickname = r.URL.Query().Get("pseudo")
+		data.WordFile = r.URL.Query().Get("difficulty")
+		http.Redirect(w, r, "/game", http.StatusSeeOther)
+		return
+	}
+	t := template.Must(template.ParseGlob("./front-end/index.gohtml"))
 	err := t.Execute(w, nil)
 	if err != nil {
 		return
 	}
-	data.Nickname, data.WordFile = r.URL.Query().Get("nickname"), r.URL.Query().Get("word")
-	game.Init(data.WordFile, &data, r)
-	Game(w, r)
+
 }
 
 func HowToPlay(w http.ResponseWriter, r *http.Request) {
@@ -52,7 +63,9 @@ func HowToPlay(w http.ResponseWriter, r *http.Request) {
 
 func Game(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.ParseGlob("./front-end/game.gohtml"))
-	err := t.Execute(w, nil)
+	var data structs.HangManData
+	//game.Init(&data, r)
+	err := t.Execute(w, data)
 	if err != nil {
 		return
 	}
