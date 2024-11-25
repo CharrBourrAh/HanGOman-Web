@@ -1,9 +1,15 @@
+@font-face {
+    font-family: "River Adventurer";
+    src: url("/front-end/assets/fonts/river_adventurer.ttf");
+}
+
 body {
-    background-image: url("assets/images/background.jpg");
+    background-image: url("/front-end/assets/images/background.jpg");
     background-position: center;
-    background-size: auto 100%;
-    background-repeat: revert;
-    font-family: "Comic Sans MS", serif;
+    background-size: cover ;
+    background-repeat: no-repeat;
+    background-attachment:fixed ;
+    font-family: "River Adventurer", serif;
 }
 
 #logo {
@@ -17,15 +23,154 @@ body {
 
 .mainMenuButtons{
     display: block;
-    margin-top: 5%;
-    width: auto;
+    width: 50%;
+    align-content: center;
+    border-radius: 30px;
+    color: white;
+    margin: auto auto 0;
+    transition: all .3s ease;
+}
+
+a.mainMenuButtons{
+    background-image: url("/front-end/assets/images/wooden_sign.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
     text-align: center;
+    display: block;
+    margin: 5% auto 0;
+    padding: 20px 0;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+    filter: drop-shadow(5px 10px 3px #000000);
+}
+
+a.mainMenuButtons:hover {
+    transform: skew(-3deg, 1deg) scale(1.2);
+}
+
+a.popupMainMenuButtons {
+    position: relative;
+    margin-left: auto;
+    border: black 20px solid;
+    border-radius: 30px ;
+    color: white;
+}
+
+.modal {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 0; right: 0;
+    bottom: 0; left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .4s;
+    backface-visibility: hidden;
+    background-image: url("/front-end/assets/images/wooden_sign.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    width: auto;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
 
 }
 
-a {
-    border: white 10px solid;
+.modal:target {
+    visibility: visible;
+    opacity: 1;
+    filter: drop-shadow(5px 10px 3000px #000000);
+}
+
+.modal_content {
+    text-align: center;
+    position: relative;
     border-radius: 30px;
-    background: white;
-    color: black;
+    padding: 1em 0.5em;
+    margin-top: 50px;
+    justify-content: center;
+transition: all .3s ease;
+}
+
+input:placeholder-shown + .difficulty {
+    display: none;
+}
+
+.modal_close {
+    bottom: 35px;
+    position: relative;
+    text-decoration: none;
+    border: #ebb26f;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 30px;
+    background: #ebb26f;
+}
+*.pseudoInput{
+    box-sizing: border-box;
+}
+
+label.pseudoInput{
+    width: 100%;
+    max-width: 300px;
+    position: relative;
+}
+
+input.pseudoInput{
+    width: 100%;
+    display: flex;
+    padding: 15px;
+    background-color: white;
+    border: 2px solid black;
+    color: #111;
+    font-size: 15px;
+    box-shadow: 3px 1px 0 2px, 0 -1px 0 2px rgba(0, 0, 0, 0.62);
+    height: 58px;
+    transform: skew(-3deg, 1deg);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: "River Adventurer", serif;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+input.pseudoInput:focus {
+    outline: none;
+    border-color: #ebb26f;
+    box-shadow: 3px 1px 0 2px, 0 -1px 0 2px rgba(0, 0, 0, 0.9);
+    transform: scale(1.05);
+}
+
+#easy {
+    color: greenyellow;
+}
+
+#medium {
+    color: yellow;
+}
+
+#hard {
+    color: red;
+}
+
+.difficulty {
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+a.difficulty:hover {
+    animation: button-pulse 0.6s ease-in-out;
+    transform: scale(1.05);
+}
+
+#easy:hover {
+    text-shadow: 0 0 10px greenyellow;
+}
+
+#medium:hover {
+    text-shadow: 0 0 10px yellow;
+}
+
+#hard:hover {
+    text-shadow: 0 0 10px red;
 }
