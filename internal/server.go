@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"html/template"
 	"log"
+	"main/internal/hangman-classic/internal-hangman-classic/game"
 	"main/internal/hangman-classic/pkg/structs"
 	"net/http"
 )
@@ -35,15 +36,20 @@ func Init_Server() {
 }
 
 func Home(w http.ResponseWriter, r *http.Request) {
-	//game.Init(&data, r)
-	if r.URL.Query().Get("pseudo") != "" && r.URL.Query().Get("difficulty") != "" {
-		data := &structs.HangManData{
-			Nickname: r.URL.Query().Get("pseudo"),
-			WordFile: r.URL.Query().Get("difficulty"),
+	if r.Method == "POST" {
+		err := r.ParseForm()
+		if err != nil {
+			return
 		}
-		context.data = data
-		http.Redirect(w, r, "/game", http.StatusSeeOther)
-		return
+		data := &structs.HangManData{
+			Nickname: r.FormValue("pseudo"),
+			WordFile: r.FormValue("difficulty"),
+		}
+		if data.Nickname != "" && data.WordFile != "" {
+			context.data = data
+			http.Redirect(w, r, "/game", http.StatusSeeOther)
+			return
+		}
 	}
 	t := template.Must(template.ParseGlob("./front-end/index.gohtml"))
 	err := t.Execute(w, nil)
@@ -66,13 +72,32 @@ func Game(w http.ResponseWriter, r *http.Request) {
 	if context.data == nil {
 		http.Error(w, "No hangman data", http.StatusBadRequest)
 		return
+	} else if context.data.ToFind == "" {
+		game.Init(context.data, r)
+		println(context.data.ToFind)
 	}
-	//game.Init(&data, r)
-	context.data.Word = "oue"
+	/*
+		for game.StatusGame(context.data) == "ingame" {
+			if r.URL.Query().Get("word") != "" {
+				context.data.Input = r.URL.Query().Get("word")
+				game.InsertChar(context.data)
+			}
+		}
+	*/
+	if r.Method == "POST" {
+		err := r.ParseForm()
+		if err != nil {
+			return
+		}
+		word := r.FormValue("word")
+		println(word)
+	}
 	t := template.Must(template.ParseGlob("./front-end/game.gohtml"))
 	err := t.Execute(w, *context.data)
 	if err != nil {
-		log.Println("Error executing gale template:", err)
+		log.Println("Error executing game template:", err)
 		return
+
 	}
+
 }
