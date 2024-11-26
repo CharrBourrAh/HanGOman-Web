@@ -103,7 +103,7 @@ func InsertChar(data *structs.HangManData) {
 				if isInList(data.AlreadyTried, userInput) == true {
 					clearcmd.ClearCMD()
 					fmt.Println("You've already used this word before")
-					break
+					return
 				} else {
 					if userInput != data.ToFind {
 						// If the given word is incorrect
