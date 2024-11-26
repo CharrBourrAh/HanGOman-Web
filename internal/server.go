@@ -35,12 +35,13 @@ func Init_Server() {
 }
 
 func Home(w http.ResponseWriter, r *http.Request) {
-	var data structs.HangManData
-	context.data = &data
 	//game.Init(&data, r)
 	if r.URL.Query().Get("pseudo") != "" && r.URL.Query().Get("difficulty") != "" {
-		data.Nickname = r.URL.Query().Get("pseudo")
-		data.WordFile = r.URL.Query().Get("difficulty")
+		data := &structs.HangManData{
+			Nickname: r.URL.Query().Get("pseudo"),
+			WordFile: r.URL.Query().Get("difficulty"),
+		}
+		context.data = data
 		http.Redirect(w, r, "/game", http.StatusSeeOther)
 		return
 	}
@@ -62,11 +63,16 @@ func HowToPlay(w http.ResponseWriter, r *http.Request) {
 }
 
 func Game(w http.ResponseWriter, r *http.Request) {
-	t := template.Must(template.ParseGlob("./front-end/game.gohtml"))
-	var data structs.HangManData
+	if context.data == nil {
+		http.Error(w, "No hangman data", http.StatusBadRequest)
+		return
+	}
 	//game.Init(&data, r)
-	err := t.Execute(w, data)
+	context.data.Word = "oue"
+	t := template.Must(template.ParseGlob("./front-end/game.gohtml"))
+	err := t.Execute(w, *context.data)
 	if err != nil {
+		log.Println("Error executing gale template:", err)
 		return
 	}
 }
