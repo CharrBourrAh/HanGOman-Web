@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+.leaderboard {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.leaderboard h1 {
+    text-align: center;
+    color: #333;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+.leaderboard-list {
+    list-style-type: none;
+    padding: 0;
+}
+.leaderboard-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-bottom: 1px solid #eee;
+}
+.leaderboard-item:last-child {
+    border-bottom: none;
+}
+.rank {
+    font-weight: bold;
+    color: #666;
+    margin-right: 15px;
+}
+.player-name {
+    flex-grow: 1;
+}
+.score {
+    font-weight: bold;
+    color: #007bff;
+}
