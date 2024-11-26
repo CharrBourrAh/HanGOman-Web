@@ -11,7 +11,7 @@
     <h1>{{.Word}}</h1>
     <p id="attempts">{{.Attempts}} essais restants</p>
     <p id="alreadyUsed">Déja utilisé : {{.AlreadyTried}}</p>
-    <img src="/front-end/assets/images/hangmanPos/hangman{{.StrAttempts}}.png" alt="Hangman Position">
+    <img src="/front-end/assets/images/hangmanPos/hangman{{ len (slice (printf "%*s" 11 "") .Attempts) }}.png" alt="Hangman Position">
 </div>
 <br>
 <form method="post" action="/game">
