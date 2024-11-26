@@ -35,7 +35,7 @@ body {
     justify-content: center;
     transition: all .4s;
     backface-visibility: hidden;
-    background-image: url("/front-end/assets/images/wooden_sign.png");
+    background-image: url("/front-end/assets/images/wooden_sign.webp");
     background-repeat: no-repeat;
     background-position: center;
     background-size: auto;
@@ -56,20 +56,6 @@ body {
     border-radius: 30px;
     justify-content: center;
     transition: all .3s ease;
-}
-
-a.mainMenuButtons{
-    background-image: url("/front-end/assets/images/wooden_sign.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    text-align: center;
-    display: block;
-    margin: 5% auto 0;
-    padding: 20px 0;
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
-    filter: drop-shadow(5px 10px 3px #000000);
 }
 
 .popupGamePageClose {
@@ -106,12 +92,13 @@ a.mainMenuButtons{
 
 .alphabet-button {
     display: block;
-    background-image: url("/front-end/assets/images/wooden_sign.png");
+    background-image: url("/front-end/assets/images/wooden_sign.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     text-align: center;
     padding: 30px;
+    font-family: "River Adventurer", serif;
     text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
     filter: drop-shadow(5px 10px 3px #000000);
     text-decoration: none;

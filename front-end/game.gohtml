@@ -8,41 +8,43 @@
 <body>
 <a class="pauseButton" href="#pause" >⏸</a>
 <div class="hangman">
-    <h1>{{.word}}</h1>
-    <p id="attempts">{{.attempts}} essais restants</p>
-    <p id="alreadyUsed">Déja utilisé : [{{.alreadyUsedLetters}}]</p>
-    <img src="/front-end/assets/images/hangmanPos/hangman{{.attemptsInversed}}.png" alt="Hangman Position">
+    <h1>{{.Word}}</h1>
+    <p id="attempts">{{.Attempts}} essais restants</p>
+    <p id="alreadyUsed">Déja utilisé : {{.AlreadyTried}}</p>
+    <img src="/front-end/assets/images/hangmanPos/hangman{{ len (slice (printf "%*s" 11 "") .Attempts) }}.png" alt="Hangman Position">
 </div>
 <br>
+<form method="post" action="/game">
 <div class="alphabet-table">
-    <a href="/" class="alphabet-button">A</a>
-    <a href="/" class="alphabet-button">B</a>
-    <a href="/" class="alphabet-button">C</a>
-    <a href="/" class="alphabet-button">D</a>
-    <a href="/" class="alphabet-button">E</a>
-    <a href="/" class="alphabet-button">F</a>
-    <a href="/" class="alphabet-button">G</a>
-    <a href="/" class="alphabet-button">H</a>
-    <a href="/" class="alphabet-button">I</a>
-    <a href="/" class="alphabet-button">J</a>
-    <a href="/" class="alphabet-button">K</a>
-    <a href="/" class="alphabet-button">L</a>
-    <a href="/" class="alphabet-button">M</a>
-    <a href="/" class="alphabet-button">N</a>
-    <a href="/" class="alphabet-button">O</a>
-    <a href="/" class="alphabet-button">P</a>
-    <a href="/" class="alphabet-button">Q</a>
-    <a href="/" class="alphabet-button">R</a>
-    <a href="/" class="alphabet-button">S</a>
-    <a href="/" class="alphabet-button">T</a>
-    <a href="/" class="alphabet-button">U</a>
-    <a href="/" class="alphabet-button">V</a>
-    <a href="/" class="alphabet-button">W</a>
-    <a href="/" class="alphabet-button">X</a>
-    <a href="/" class="alphabet-button">Y</a>
-    <a href="/" class="alphabet-button">Z</a>
+    <input class="alphabet-button" name="word" type="submit" value="a">
+    <input class="alphabet-button" name="word" type="submit" value="b">
+    <input class="alphabet-button" name="word" type="submit" value="c">
+    <input class="alphabet-button" name="word" type="submit" value="d">
+    <input class="alphabet-button" name="word" type="submit" value="e">
+    <input class="alphabet-button" name="word" type="submit" value="f">
+    <input class="alphabet-button" name="word" type="submit" value="g">
+    <input class="alphabet-button" name="word" type="submit" value="h">
+    <input class="alphabet-button" name="word" type="submit" value="i">
+    <input class="alphabet-button" name="word" type="submit" value="j">
+    <input class="alphabet-button" name="word" type="submit" value="k">
+    <input class="alphabet-button" name="word" type="submit" value="l">
+    <input class="alphabet-button" name="word" type="submit" value="m">
+    <input class="alphabet-button" name="word" type="submit" value="n">
+    <input class="alphabet-button" name="word" type="submit" value="o">
+    <input class="alphabet-button" name="word" type="submit" value="p">
+    <input class="alphabet-button" name="word" type="submit" value="q">
+    <input class="alphabet-button" name="word" type="submit" value="r">
+    <input class="alphabet-button" name="word" type="submit" value="s">
+    <input class="alphabet-button" name="word" type="submit" value="t">
+    <input class="alphabet-button" name="word" type="submit" value="u">
+    <input class="alphabet-button" name="word" type="submit" value="v">
+    <input class="alphabet-button" name="word" type="submit" value="w">
+    <input class="alphabet-button" name="word" type="submit" value="x">
+    <input class="alphabet-button" name="word" type="submit" value="y">
+    <input class="alphabet-button" name="word" type="submit" value="z">
 </div>
-<form action="" method="get" class="wordInput">
+</form>
+<form action="/game" method="post" class="wordInput">
     <label class="wordInput" for="word"></label><br>
     <input class="wordInput" type="text" id="word" name="word" placeholder="Entrez votre choix ci-dessous" required>
     <input class="wordInput" type="submit" id="send" value="Envoyer">
