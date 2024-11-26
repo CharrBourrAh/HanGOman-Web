@@ -8,4 +8,5 @@ type HangManData struct {
 	WordFile     string   `json:"wordFile"`
 	AlreadyTried []string `json:"alreadyTried"`
 	Nickname     string   `json:"nickname"`
+	Input        string   `json:"input"`
 }
