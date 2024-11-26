@@ -14,35 +14,37 @@
     <img src="/front-end/assets/images/hangmanPos/hangman{{.StrAttempts}}.png" alt="Hangman Position">
 </div>
 <br>
+<form method="post" action="/game">
 <div class="alphabet-table">
-    <a href="/" class="alphabet-button">A</a>
-    <a href="/" class="alphabet-button">B</a>
-    <a href="/" class="alphabet-button">C</a>
-    <a href="/" class="alphabet-button">D</a>
-    <a href="/" class="alphabet-button">E</a>
-    <a href="/" class="alphabet-button">F</a>
-    <a href="/" class="alphabet-button">G</a>
-    <a href="/" class="alphabet-button">H</a>
-    <a href="/" class="alphabet-button">I</a>
-    <a href="/" class="alphabet-button">J</a>
-    <a href="/" class="alphabet-button">K</a>
-    <a href="/" class="alphabet-button">L</a>
-    <a href="/" class="alphabet-button">M</a>
-    <a href="/" class="alphabet-button">N</a>
-    <a href="/" class="alphabet-button">O</a>
-    <a href="/" class="alphabet-button">P</a>
-    <a href="/" class="alphabet-button">Q</a>
-    <a href="/" class="alphabet-button">R</a>
-    <a href="/" class="alphabet-button">S</a>
-    <a href="/" class="alphabet-button">T</a>
-    <a href="/" class="alphabet-button">U</a>
-    <a href="/" class="alphabet-button">V</a>
-    <a href="/" class="alphabet-button">W</a>
-    <a href="/" class="alphabet-button">X</a>
-    <a href="/" class="alphabet-button">Y</a>
-    <a href="/" class="alphabet-button">Z</a>
+    <input class="alphabet-button" name="word" type="submit" value="A">
+    <input class="alphabet-button" name="word" type="submit" value="B">
+    <input class="alphabet-button" name="word" type="submit" value="C">
+    <input class="alphabet-button" name="word" type="submit" value="D">
+    <input class="alphabet-button" name="word" type="submit" value="E">
+    <input class="alphabet-button" name="word" type="submit" value="F">
+    <input class="alphabet-button" name="word" type="submit" value="G">
+    <input class="alphabet-button" name="word" type="submit" value="H">
+    <input class="alphabet-button" name="word" type="submit" value="I">
+    <input class="alphabet-button" name="word" type="submit" value="J">
+    <input class="alphabet-button" name="word" type="submit" value="K">
+    <input class="alphabet-button" name="word" type="submit" value="L">
+    <input class="alphabet-button" name="word" type="submit" value="M">
+    <input class="alphabet-button" name="word" type="submit" value="N">
+    <input class="alphabet-button" name="word" type="submit" value="O">
+    <input class="alphabet-button" name="word" type="submit" value="P">
+    <input class="alphabet-button" name="word" type="submit" value="Q">
+    <input class="alphabet-button" name="word" type="submit" value="R">
+    <input class="alphabet-button" name="word" type="submit" value="S">
+    <input class="alphabet-button" name="word" type="submit" value="T">
+    <input class="alphabet-button" name="word" type="submit" value="U">
+    <input class="alphabet-button" name="word" type="submit" value="V">
+    <input class="alphabet-button" name="word" type="submit" value="W">
+    <input class="alphabet-button" name="word" type="submit" value="X">
+    <input class="alphabet-button" name="word" type="submit" value="Y">
+    <input class="alphabet-button" name="word" type="submit" value="Z">
 </div>
-<form action="" method="get" class="wordInput">
+</form>
+<form action="" method="post" class="wordInput">
     <label class="wordInput" for="word"></label><br>
     <input class="wordInput" type="text" id="word" name="word" placeholder="Entrez votre choix ci-dessous" required>
     <input class="wordInput" type="submit" id="send" value="Envoyer">
