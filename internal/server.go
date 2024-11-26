@@ -7,6 +7,7 @@ import (
 	"main/internal/hangman-classic/internal-hangman-classic/game"
 	"main/internal/hangman-classic/pkg/structs"
 	"net/http"
+	"strings"
 )
 
 type AppContext struct {
@@ -86,7 +87,7 @@ func Game(w http.ResponseWriter, r *http.Request) {
 			if err != nil {
 				return
 			}
-			context.data.Input = r.FormValue("word")
+			context.data.Input = strings.ToLower(r.FormValue("word"))
 			println(context.data.Input)
 			println(context.data.ToFind)
 			game.InsertChar(context.data)
