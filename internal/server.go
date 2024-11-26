@@ -47,6 +47,9 @@ func Home(w http.ResponseWriter, r *http.Request) {
 		}
 		if data.Nickname != "" && data.WordFile != "" {
 			context.data = data
+			if data.ToFind != "" {
+				data.ToFind = ""
+			}
 			http.Redirect(w, r, "/game", http.StatusSeeOther)
 			return
 		}
@@ -72,32 +75,29 @@ func Game(w http.ResponseWriter, r *http.Request) {
 	if context.data == nil {
 		http.Error(w, "No hangman data", http.StatusBadRequest)
 		return
-	} else if context.data.ToFind == "" {
-		game.Init(context.data, r)
+	}
+	if context.data.ToFind == "" {
+		game.Init(context.data)
 		println(context.data.ToFind)
 	}
-	/*
-		for game.StatusGame(context.data) == "ingame" {
-			if r.URL.Query().Get("word") != "" {
-				context.data.Input = r.URL.Query().Get("word")
-				game.InsertChar(context.data)
+	if game.StatusGame(context.data) == "ingame" {
+		if r.Method == "POST" {
+			err := r.ParseForm()
+			if err != nil {
+				return
 			}
+			context.data.Input = r.FormValue("word")
+			println(context.data.Input)
+			println(context.data.ToFind)
+			game.InsertChar(context.data)
 		}
-	*/
-	if r.Method == "POST" {
-		err := r.ParseForm()
-		if err != nil {
-			return
-		}
-		word := r.FormValue("word")
-		println(word)
+	} else {
+		// lancer page victoire / défaite
 	}
 	t := template.Must(template.ParseGlob("./front-end/game.gohtml"))
 	err := t.Execute(w, *context.data)
 	if err != nil {
 		log.Println("Error executing game template:", err)
 		return
-
 	}
-
 }
