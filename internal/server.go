@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"html/template"
 	"log"
+	"main/internal/hangman-classic/pkg/structs"
 	"net/http"
 )
 
@@ -57,5 +58,26 @@ func WinLose(w http.ResponseWriter, r *http.Request) {
 	err := t.Execute(w, nil)
 	if err != nil {
 		return
+	}
+}
+
+func LeaderBoard(w http.ResponseWriter, r *http.Request) {
+	var LeaderboardList []structs.Score
+	LeaderboardList = []structs.Score{
+		{Nickname: "test", Attempts: 1, Difficulty: "facile"},
+	}
+	for _, player := range LeaderboardList {
+		if player.Attempts > 0 {
+			LeaderboardList = append(LeaderboardList, player)
+		}
+	}
+	t, err := template.ParseGlob("./front-end/leaderboard.gohtml")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	err = t.Execute(w, LeaderboardList)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }

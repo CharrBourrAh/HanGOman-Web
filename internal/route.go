@@ -9,4 +9,6 @@ func RootHandler(server *http.ServeMux) {
 	server.HandleFunc("/how-to-play", HowToPlay)
 	server.HandleFunc("/game", Game)
 	server.HandleFunc("/Win-Lose", WinLose)
+	server.HandleFunc("/leaderboard", LeaderBoard)
+
 }
