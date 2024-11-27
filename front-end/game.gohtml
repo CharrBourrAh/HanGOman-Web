@@ -50,10 +50,12 @@
     <input class="wordInput" type="submit" id="send" value="Envoyer">
 </form>
 <div id="pause" class="popupGamePage">
+    <form method="post" action="/game">
     <div class="popupGamePageContent">
-        <a id="replay" class="alphabet-button" href="/game">Rejouer</a>
-        <a id="replay" class="alphabet-button" href="/">Menu Principal</a>
+        <button name="pauseMenu" class="alphabet-button" value="replay">Rejouer</button>
+        <button name="pauseMenu" class="alphabet-button" value="mainMenu">Menu Principal</button>
     </div>
+    </form>
     <a href="/game" class="popupGamePageClose">❌</a>
 </div>
 </body>

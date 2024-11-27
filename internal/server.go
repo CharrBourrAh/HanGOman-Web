@@ -80,6 +80,23 @@ func Game(w http.ResponseWriter, r *http.Request) {
 		game.Init(context.data)
 		println(context.data.ToFind)
 	}
+	if r.Method == "POST" {
+		err := r.ParseForm()
+		if err != nil {
+			return
+		}
+		switch r.FormValue("pauseMenu") {
+		case "replay":
+			context.data.ToFind = ""
+			context.data.Word = ""
+			context.data.Input = ""
+			http.Redirect(w, r, "/game", http.StatusSeeOther)
+			return
+		case "mainMenu":
+			http.Redirect(w, r, "/", http.StatusSeeOther)
+			return
+		}
+	}
 	if game.StatusGame(context.data) == "ingame" {
 		if r.Method == "POST" {
 			err := r.ParseForm()
