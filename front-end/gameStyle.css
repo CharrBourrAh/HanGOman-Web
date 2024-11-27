@@ -9,6 +9,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: scroll;
     font-family: "River Adventurer", serif;
+    text-shadow: #ffffff 1px 1px, #ffffff -1px 1px, #ffffff -1px -1px, #ffffff 1px -1px;
 }
 
 .pauseButton {
@@ -68,9 +69,9 @@ body {
 }
 
 .hangman h1 , .hangman p{
-    color: white;
+    color: black;
     text-align: center;
-    filter: drop-shadow(1px 1px 1px #000000);
+
 }
 
 .hangman img {
@@ -93,16 +94,15 @@ body {
 .alphabet-button {
     display: block;
     background-image: url("/front-end/assets/images/wooden_sign.webp");
-    background-size: cover;
+    background-size: 220%;
     background-position: center;
     background-repeat: no-repeat;
     text-align: center;
     padding: 30px;
     font-family: "River Adventurer", serif;
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
     filter: drop-shadow(5px 10px 3px #000000);
     text-decoration: none;
-    color: white;
+    color: black;
     transition: all .5s ease;
 }
 
