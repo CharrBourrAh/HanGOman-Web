@@ -1,6 +1,6 @@
 # HanGOman Web
 
-<img src="front-end/assets/images/HanGOmanWeb.png" alt="HanGOman Web logo">
+<img alt="HanGOman Web logo" src="front-end/assets/images/HanGOmanWeb.png">
 
 ***
 
