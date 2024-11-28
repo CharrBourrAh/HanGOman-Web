@@ -105,8 +105,8 @@ func Game(w http.ResponseWriter, r *http.Request) {
 				return
 			}
 			context.data.Input = strings.ToLower(r.FormValue("word"))
-			println(context.data.Input)
-			println(context.data.ToFind)
+			println("input : " + context.data.Input)
+			println("current word : " + context.data.ToFind)
 			game.InsertChar(context.data)
 			status = game.StatusGame(context.data)
 			if status != "ingame" {
