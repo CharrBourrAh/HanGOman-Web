@@ -80,6 +80,7 @@ func Game(w http.ResponseWriter, r *http.Request) {
 		game.Init(context.data)
 		println(context.data.ToFind)
 	}
+	status := game.StatusGame(context.data)
 	if r.Method == "POST" {
 		err := r.ParseForm()
 		if err != nil {
@@ -97,7 +98,7 @@ func Game(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	}
-	if game.StatusGame(context.data) == "ingame" {
+	if status == "ingame" {
 		if r.Method == "POST" {
 			err := r.ParseForm()
 			if err != nil {
@@ -107,6 +108,7 @@ func Game(w http.ResponseWriter, r *http.Request) {
 			println(context.data.Input)
 			println(context.data.ToFind)
 			game.InsertChar(context.data)
+			status = game.StatusGame(context.data)
 		}
 	} else {
 		// lancer page victoire / défaite
