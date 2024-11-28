@@ -129,7 +129,7 @@ func WinLose(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func LeaderBoard(w http.ResponseWriter, r *http.Request) {
+/* func LeaderBoard(w http.ResponseWriter, r *http.Request) {
 	var LeaderboardList []structs.Score
 	LeaderboardList = []structs.Score{
 		{Nickname: "test", Attempts: 1, Difficulty: "facile"},
@@ -149,3 +149,5 @@ func LeaderBoard(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }
+
+*/
