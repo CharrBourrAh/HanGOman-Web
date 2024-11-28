@@ -22,7 +22,7 @@ const PortNum string = ":3000"
 func Init_Server() {
 
 	router := http.NewServeMux()
-	log.Println("Starting our simple http server.")
+	log.Println("The http server is starting.")
 
 	RootHandler(router)
 	log.Println("Started on port", PortNum)
@@ -116,6 +116,7 @@ func Game(w http.ResponseWriter, r *http.Request) {
 				case "lose":
 					context.data.Status = false
 				}
+				leaderboard.AddPlayerToLeaderBoard(context.data.Nickname, context.data.Attempts, context.data.WordFile)
 				http.Redirect(w, r, "/Win-Lose", http.StatusSeeOther)
 				return
 			}
@@ -153,7 +154,6 @@ func WinLose(w http.ResponseWriter, r *http.Request) {
 }
 
 func LeaderBoardHandler(w http.ResponseWriter, r *http.Request) {
-	leaderboard.AddPlayerToLeaderBoard(context.data.Nickname, context.data.Attempts, context.data.WordFile)
 	boardData := leaderboard.GetLeaderBoard()
 
 	tmpl, err := template.ParseFiles("./front-end/leaderboard.gohtml")
