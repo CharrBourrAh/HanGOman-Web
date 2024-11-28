@@ -81,6 +81,7 @@ body {
     transform: translateX(57.5%);
     filter: drop-shadow(5px 10px 3px #000000);
 }
+
 .alphabet-table {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
@@ -94,7 +95,7 @@ body {
 .alphabet-button {
     display: block;
     background-image: url("/front-end/assets/images/wooden_sign.webp");
-    background-size: 220%;
+    background-size: 270%;
     background-position: center;
     background-repeat: no-repeat;
     text-align: center;
@@ -104,6 +105,7 @@ body {
     text-decoration: none;
     color: black;
     transition: all .5s ease;
+    font-size: 40px;
 }
 
 .alphabet-button:hover {
