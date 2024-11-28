@@ -113,10 +113,10 @@ func Game(w http.ResponseWriter, r *http.Request) {
 				switch status {
 				case "win":
 					context.data.Status = true
+					leaderboard.AddPlayerToLeaderBoard(context.data.Nickname, context.data.Attempts, context.data.WordFile)
 				case "lose":
 					context.data.Status = false
 				}
-				leaderboard.AddPlayerToLeaderBoard(context.data.Nickname, context.data.Attempts, context.data.WordFile)
 				http.Redirect(w, r, "/Win-Lose", http.StatusSeeOther)
 				return
 			}
