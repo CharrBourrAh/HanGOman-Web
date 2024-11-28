@@ -90,6 +90,7 @@ func Game(w http.ResponseWriter, r *http.Request) {
 		}
 		switch r.FormValue("pauseMenu") {
 		case "replay":
+			game.Init(context.data)
 			http.Redirect(w, r, "/game", http.StatusSeeOther)
 			return
 		case "mainMenu":
@@ -129,6 +130,21 @@ func Game(w http.ResponseWriter, r *http.Request) {
 }
 
 func WinLose(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "POST" {
+		err := r.ParseForm()
+		if err != nil {
+			return
+		}
+		switch r.FormValue("endButtons") {
+		case "replay":
+			game.Init(context.data)
+			http.Redirect(w, r, "/game", http.StatusSeeOther)
+			return
+		case "mainMenu":
+			http.Redirect(w, r, "/", http.StatusSeeOther)
+			return
+		}
+	}
 	t := template.Must(template.ParseGlob("./front-end/win-lose.gohtml"))
 	err := t.Execute(w, context.data)
 	if err != nil {
