@@ -25,9 +25,9 @@ Pour démarrer le serveur, il vous suffit de lancer le fichier ``main.go`` prés
 
 Pour cela : 
 
-* Lancez un invite de commande et rendez vous dans le fichier ``/hangman-web``. <br> 
+* Lancez un invite de commande et rendez-vous dans le fichier ``/hangman-web``. <br> 
 Une fois dedans, lancez la commande ``go run ./cmd``.
-* Attendez quelques secondes et si deux lignes de texte s'affichent dans le terminal contenant ``The http server is starting.`` et ``Started on port :3000`` précédé de la date et de l'heure, rendez-vous sur votre navigateur a l'adresse ``localhost:3000`` ou depuis un autre appareil présent sur votre réseau en entrant ``http://[votre adresse ip]:3000``.
+* Attendez quelques secondes et si deux lignes de texte s'affichent dans le terminal contenant ``The http server is starting.`` et ``Started on port :3000`` précédé de la date et de l'heure, rendez-vous sur votre navigateur à l'adresse ``localhost:3000`` ou depuis un autre appareil présent sur votre réseau en entrant ``http://[votre adresse ip]:3000``.
 
 
 Vous allez vous retrouver sur la page principale du jeu : <br>
@@ -37,10 +37,10 @@ Vous allez vous retrouver sur la page principale du jeu : <br>
 * Le bouton comment jouer qui permet d'ouvrir une page avec un court explicatif des règles du jeu du pendu.
 * Le bouton tableau des scores qui permet comme son nom l'indique, d'accéder au leaderboard (celui-ci sera vide si aucune partie n'a été finie depuis le redémarrage du serveur).
 
-En jeu, vous aurez 2 façons de choisir une lettre : via le clavier visuel ou via la barre de saisie (où vous pouvez y entrer un mot entier).
+En jeu, vous aurez deux façons de choisir une lettre : via le clavier visuel ou via la barre de saisie (où vous pouvez y entrer un mot entier).
 
 Si vous entrez une lettre qui n'est pas présente dans le mot à trouver, **un essai** vous est retiré.<br>
-Si vous entrez un mot qui n'est pas celui à trouver, vous perdez **2 essais**.
+Si vous entrez un mot qui n'est pas celui à trouver, vous perdez **deux essais**.
 
 En jeu, vous souhaitez rejouer ou retourner au menu principal, cliquez sur le menu pause en haut à droite et cliquez sur le bouton correspondant.
 
