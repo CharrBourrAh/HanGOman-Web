@@ -8,7 +8,7 @@
 <body>
 <img id="logo" src="/front-end/assets/images/HanGOmanWeb.png" alt="HanGOmanWeb logo"/>
 <div class="mainMenuButtons">
-    <a class="mainMenuButtons" href="#demo">
+    <a class="mainMenuButtons" href="#popupMenuMain">
         Jouer
     </a>
     <br><br>
@@ -20,18 +20,20 @@
         Tableau des scores
     </a>
 </div>
-<div id="demo" class="modal">
+<div id="popupMenuMain" class="modal">
     <div class="modal_content">
+        <form method="post">
         <label class="pseudoInput" for="pseudo">Votre pseudo :</label><br>
         <input class="pseudoInput" type="text" id="pseudo" name="pseudo" placeholder="Ex: Robert">
         <div class="difficulty">
         <p>Choisissez la difficulté : </p>
         <div class="popupMainMenuButtons">
-            <a id="easy" href="/game" type="submit">Facile</a>
-            <a id="medium" href="/game" type="submit">Moyen</a>
-            <a id="hard" href="/game" type="submit">Force à toi</a>
+            <button id="easy" name="difficulty" value="./internal/hangman-classic/data/words.txt" type="submit">Facile</button>
+            <button id="medium" name="difficulty" value="./internal/hangman-classic/data/words2.txt" type="submit">Moyen</button>
+            <button id="hard" name="difficulty" value="./internal/hangman-classic/data/words3.txt" type="submit">Force à toi</button>
         </div>
         </div>
+        </form>
     </div>
     <a href="#" class="modal_close">❌</a>
 </div>

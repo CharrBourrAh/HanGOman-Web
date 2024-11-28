@@ -4,9 +4,18 @@ import (
 	"fmt"
 	"html/template"
 	"log"
+	"main/internal/hangman-classic/internal-hangman-classic/game"
+	"main/internal/hangman-classic/pkg/structs"
 	"main/front-end/leaderboard"
 	"net/http"
+	"strings"
 )
+
+type AppContext struct {
+	data *structs.HangManData
+}
+
+var context AppContext
 
 const PortNum string = ":3000"
 
@@ -30,6 +39,24 @@ func Init_Server() {
 }
 
 func Home(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "POST" {
+		err := r.ParseForm()
+		if err != nil {
+			return
+		}
+		data := &structs.HangManData{
+			Nickname: r.FormValue("pseudo"),
+			WordFile: r.FormValue("difficulty"),
+		}
+		if data.Nickname != "" && data.WordFile != "" {
+			context.data = data
+			if data.ToFind != "" {
+				data.ToFind = ""
+			}
+			http.Redirect(w, r, "/game", http.StatusSeeOther)
+			return
+		}
+	}
 	t := template.Must(template.ParseGlob("./front-end/index.gohtml"))
 	err := t.Execute(w, nil)
 	if err != nil {
@@ -47,7 +74,57 @@ func HowToPlay(w http.ResponseWriter, r *http.Request) {
 }
 
 func Game(w http.ResponseWriter, r *http.Request) {
+	if context.data == nil {
+		http.Error(w, "No hangman data", http.StatusBadRequest)
+		return
+	}
+	if context.data.ToFind == "" {
+		game.Init(context.data)
+		println(context.data.ToFind)
+	}
+	status := game.StatusGame(context.data)
+	if r.Method == "POST" {
+		err := r.ParseForm()
+		if err != nil {
+			return
+		}
+		switch r.FormValue("pauseMenu") {
+		case "replay":
+			context.data.ToFind = ""
+			context.data.Word = ""
+			context.data.Input = ""
+			http.Redirect(w, r, "/game", http.StatusSeeOther)
+			return
+		case "mainMenu":
+			http.Redirect(w, r, "/", http.StatusSeeOther)
+			return
+		}
+	}
+	if status == "ingame" {
+		if r.Method == "POST" {
+			err := r.ParseForm()
+			if err != nil {
+				return
+			}
+			context.data.Input = strings.ToLower(r.FormValue("word"))
+			println(context.data.Input)
+			println(context.data.ToFind)
+			game.InsertChar(context.data)
+			status = game.StatusGame(context.data)
+		}
+	} else {
+		// lancer page victoire / défaite
+	}
 	t := template.Must(template.ParseGlob("./front-end/game.gohtml"))
+	err := t.Execute(w, *context.data)
+	if err != nil {
+		log.Println("Error executing game template:", err)
+		return
+	}
+}
+
+func WinLose(w http.ResponseWriter, r *http.Request) {
+	t := template.Must(template.ParseGlob("./front-end/win-lose.gohtml"))
 	err := t.Execute(w, nil)
 	if err != nil {
 		return
@@ -70,4 +147,5 @@ func LeaderBoardHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
+
 }
