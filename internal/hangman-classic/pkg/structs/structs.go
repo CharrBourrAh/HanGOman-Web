@@ -8,4 +8,5 @@ type HangManData struct {
 	AlreadyTried []string `json:"alreadyTried"`
 	Nickname     string   `json:"nickname"`
 	Input        string   `json:"input"`
+	Status       bool     `json:"status"`
 }
