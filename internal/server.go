@@ -88,9 +88,6 @@ func Game(w http.ResponseWriter, r *http.Request) {
 		}
 		switch r.FormValue("pauseMenu") {
 		case "replay":
-			context.data.ToFind = ""
-			context.data.Word = ""
-			context.data.Input = ""
 			http.Redirect(w, r, "/game", http.StatusSeeOther)
 			return
 		case "mainMenu":
@@ -109,9 +106,17 @@ func Game(w http.ResponseWriter, r *http.Request) {
 			println(context.data.ToFind)
 			game.InsertChar(context.data)
 			status = game.StatusGame(context.data)
+			if status != "ingame" {
+				switch status {
+				case "win":
+					context.data.Status = true
+				case "lose":
+					context.data.Status = false
+				}
+				http.Redirect(w, r, "/Win-Lose", http.StatusSeeOther)
+				return
+			}
 		}
-	} else {
-		// lancer page victoire / défaite
 	}
 	t := template.Must(template.ParseGlob("./front-end/game.gohtml"))
 	err := t.Execute(w, *context.data)
@@ -123,7 +128,7 @@ func Game(w http.ResponseWriter, r *http.Request) {
 
 func WinLose(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.ParseGlob("./front-end/win-lose.gohtml"))
-	err := t.Execute(w, nil)
+	err := t.Execute(w, context.data)
 	if err != nil {
 		return
 	}
