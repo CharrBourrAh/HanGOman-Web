@@ -64,6 +64,9 @@ func randomWord(list [][]string, data *structs.HangManData) {
 
 func Init(data *structs.HangManData) {
 	// variables initialisation
+	data.ToFind = ""
+	data.Word = ""
+	data.Input = ""
 	data.Attempts = 10
 	data.AlreadyTried = []string{}
 	randomWord(ReadFile(data.WordFile), data)
