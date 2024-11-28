@@ -8,16 +8,21 @@
 <body>
 <div class="leaderboard">
     <h1>🏆 Classement</h1>
-    <ul class="leaderboard-list">
-        {{range $index, $player := .}}
-            {{ if gt $player.Attempts 0 }}
-            <li class="leaderboard-item">
-                <span class="rank">{{add $index 1}}</span>
-                <span class="Nickname">{{.Nickname}}</span>
-                <span class="Remain Attempts">{{.Attempts}} pts</span>
-            </li>
+    <table>
+        <tr>
+            <th>Pseudo</th>
+            <th>Tentatives restantes</th>
+            <th>Difficulté</th>
+        </tr>
+
+        {{range .}}
+        <tr>
+            <td>{{.Nickname}}</td>
+            <td>{{.Attempts}}</td>
+            <td>{{.Difficulty}}</td>
+        </tr>
         {{end}}
-    </ul>
+    </table>
 </div>
 </body>
 </html>

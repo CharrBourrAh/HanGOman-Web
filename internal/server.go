@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"html/template"
 	"log"
+	"main/front-end/leaderboard"
 	"main/internal/hangman-classic/internal-hangman-classic/game"
 	"main/internal/hangman-classic/pkg/structs"
 	"net/http"
@@ -19,6 +20,7 @@ var context AppContext
 const PortNum string = ":3000"
 
 func Init_Server() {
+
 	router := http.NewServeMux()
 	log.Println("Starting our simple http server.")
 
@@ -134,25 +136,20 @@ func WinLose(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-/* func LeaderBoard(w http.ResponseWriter, r *http.Request) {
-	var LeaderboardList []structs.Score
-	LeaderboardList = []structs.Score{
-		{Nickname: "test", Attempts: 1, Difficulty: "facile"},
+func LeaderBoardHandler(w http.ResponseWriter, r *http.Request) {
+	leaderboard.AddPlayerToLeaderBoard(context.data.Nickname, context.data.Attempts, context.data.WordFile)
+	boardData := leaderboard.GetLeaderBoard()
+
+	tmpl, err := template.ParseFiles("./front-end/leaderboard.gohtml")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		http.Redirect(w, r, "/leaderboard", http.StatusSeeOther)
+		return
 	}
-	for _, player := range LeaderboardList {
-		if player.Attempts > 0 {
-			LeaderboardList = append(LeaderboardList, player)
-		}
-	}
-	t, err := template.ParseGlob("./front-end/leaderboard.gohtml")
+	err = tmpl.Execute(w, boardData)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	err = t.Execute(w, LeaderboardList)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-	}
+	return
 }
-
-*/
