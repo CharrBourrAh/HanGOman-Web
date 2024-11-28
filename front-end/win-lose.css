@@ -1,6 +1,6 @@
 body {
     font-family: "River Adventurer", sans-serif;
-    background-color: #333;
+    background-image: url("assets/images/background.jpg");
     color: #fff;
     margin: 0;
     padding: 0;
@@ -12,33 +12,44 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-image: url("assets/images/background.jpg");
     background-size: cover;
     background-position: center;
 }
 
 .content {
-    background-color: rgba(0,0,0,0.7);
+    background-image: url("assets/images/wooden_sign.webp");
     padding: 2rem;
     text-align: center;
     border-radius: 10px;
 }
 
 .title {
-    font-size: 3rem;
+    font-size: 100px;
     margin-bottom: 2rem;
+    text-shadow: #ffffff 1px 1px, #ffffff -1px 1px, #ffffff -1px -1px, #ffffff 1px -1px;
+}
+
+#victory {
+    color: green;
+}
+
+#defeat {
+    color: red;
+}
+
+.button button {
+    background-image: url("assets/images/wooden_sign.webp")
 }
 
 .button {
     display :inline-block;
-    background-color: #ffb700;
-    color: #333;
+    background-image: url("assets/images/wooden_sign.webp");
     padding: 1rem 2rem;
     border-radius: 5px;
     font-size:1.2rem;
-    transition: background-color 0.3s;
+    transition: ease 0.3s;
 }
 
 .button:hover {
-    background-color: #ffc733
+   transform: scale(1.05);
 }
