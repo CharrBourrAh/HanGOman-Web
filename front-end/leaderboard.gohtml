@@ -11,13 +11,17 @@
     <table>
         <tr>
             <th>Pseudo</th>
-            <th>Tentatives</th>
+            <th>Tentatives restantes</th>
+            <th>Difficulté</th>
         </tr>
+
         {{range .}}
         <tr>
             <td>{{.Nickname}}</td>
-            <td>{{.Attemps}}</td>
+            <td>{{.Attempts}}</td>
+            <td>{{.Difficulty}}</td>
         </tr>
+        {{end}}
     </table>
 </div>
 </body>

@@ -4,26 +4,34 @@ import (
 	"sort"
 )
 
-type LeaderBoardEntry struct {
+type Entry struct {
 	Nickname   string
 	Attempts   int
 	Difficulty string
 }
 
-var LeaderBoardData []LeaderBoardEntry
+var Data []Entry
 
 func AddPlayerToLeaderBoard(nickname string, attempts int, difficulty string) {
-	entry := LeaderBoardEntry{
-		Nickname:   nickname,
-		Attempts:   attempts,
-		Difficulty: difficulty,
+	entry := Entry{
+		Nickname: nickname,
+		Attempts: attempts,
 	}
-	LeaderBoardData = append(LeaderBoardData, entry)
+	switch difficulty {
+	case "./internal/hangman-classic/data/words.txt":
+		entry.Difficulty = "Facile"
+	case "./internal/hangman-classic/data/words2.txt":
+		entry.Difficulty = "Moyen"
+	case "./internal/hangman-classic/data/words3.txt":
+		entry.Difficulty = "Force à toi"
+
+	}
+	Data = append(Data, entry)
 }
 
-func GetLeaderBoard() []LeaderBoardEntry {
-	sortedLeaderBoard := make([]LeaderBoardEntry, len(LeaderBoardData))
-	copy(sortedLeaderBoard, LeaderBoardData)
+func GetLeaderBoard() []Entry {
+	sortedLeaderBoard := make([]Entry, len(Data))
+	copy(sortedLeaderBoard, Data)
 
 	sort.Slice(sortedLeaderBoard, func(i, j int) bool {
 		return sortedLeaderBoard[i].Attempts > sortedLeaderBoard[j].Attempts
@@ -31,7 +39,7 @@ func GetLeaderBoard() []LeaderBoardEntry {
 	return sortedLeaderBoard
 }
 
-func getTopPlayers(limit int) []LeaderBoardEntry {
+func getTopPlayers(limit int) []Entry {
 	leaderBoard := GetLeaderBoard()
 	if limit > len(leaderBoard) {
 		return leaderBoard

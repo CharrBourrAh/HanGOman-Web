@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"html/template"
 	"log"
+	"main/front-end/leaderboard"
 	"main/internal/hangman-classic/internal-hangman-classic/game"
 	"main/internal/hangman-classic/pkg/structs"
-	"main/front-end/leaderboard"
 	"net/http"
 	"strings"
 )
@@ -132,20 +132,19 @@ func WinLose(w http.ResponseWriter, r *http.Request) {
 }
 
 func LeaderBoardHandler(w http.ResponseWriter, r *http.Request) {
-	leaderboard.AddPlayerToLeaderBoard("Alice", 10, "")
-	leaderboard.AddPlayerToLeaderBoard("test", 5, "force a toi")
-	leaderboard.AddPlayerToLeaderBoard("paul", 1, "facile")
-
+	leaderboard.AddPlayerToLeaderBoard(context.data.Nickname, context.data.Attempts, context.data.WordFile)
 	boardData := leaderboard.GetLeaderBoard()
 
 	tmpl, err := template.ParseFiles("./front-end/leaderboard.gohtml")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
+		http.Redirect(w, r, "/leaderboard", http.StatusSeeOther)
 		return
 	}
 	err = tmpl.Execute(w, boardData)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
-
+	return
 }
